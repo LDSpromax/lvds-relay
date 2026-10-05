@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: lvds-relay
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: RELAY_KEY
+        sync: false
+      - key: ALLOW_HOSTS
+        value: "google.com,googleapis.com,googleusercontent.com,meta.com,facebook.com,instagram.com"
+      - key: PYTHON_VERSION
+        value: "3.12.0"
